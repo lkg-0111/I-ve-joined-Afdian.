@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的爱发电主页 · 入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f9f5ff 0%, #e9dffc 100%);
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .card {
+            max-width: 560px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 48px;
+            padding: 3rem 2rem 2.5rem;
+            box-shadow: 0 25px 50px -8px rgba(100, 70, 180, 0.25),
+                        0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.005);
+        }
+
+        .avatar {
+            width: 96px;
+            height: 96px;
+            background: linear-gradient(135deg, #a88bfa, #7a5cf0);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 600;
+            color: white;
+            box-shadow: 0 15px 30px -8px #7a5cf0;
+            border: 3px solid rgba(255, 255, 255, 0.7);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #1e1035;
+            margin-bottom: 0.4rem;
+        }
+
+        .subhead {
+            font-size: 1.05rem;
+            color: #4f3b7a;
+            margin-bottom: 2rem;
+            font-weight: 450;
+            padding: 0 0.5rem;
+        }
+
+        .afdian-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f0e9ff;
+            color: #5b3dc9;
+            padding: 0.5rem 1.1rem;
+            border-radius: 100px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            border: 1px solid #d7c6ff;
+        }
+
+        .badge-icon {
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #6d4aff;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 1.1rem 2.2rem;
+            border-radius: 100px;
+            width: 100%;
+            transition: all 0.2s ease;
+            box-shadow: 0 10px 22px -8px #6d4aff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            letter-spacing: 0.01em;
+        }
+
+        .btn:hover {
+            background: #5a36f0;
+            box-shadow: 0 18px 28px -10px #6d4aff;
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 6px 14px -6px #6d4aff;
+        }
+
+        .btn-icon {
+            font-size: 1.3rem;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover .btn-icon {
+            transform: translateX(4px);
+        }
+
+        .link-hint {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #7260a0;
+            background: #ffffffb8;
+            padding: 0.75rem 1rem;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            word-break: break-all;
+            border: 1px solid #e4d7ff;
+            backdrop-filter: blur(4px);
+            flex-wrap: wrap;
+        }
+
+        .link-hint span {
+            background: #e9dfff;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            font-weight: 500;
+            color: #3f2b7a;
+            font-size: 0.85rem;
+        }
+
+        .link-hint a {
+            color: #4e2ec4;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #b7a1f0;
+        }
+
+        .link-hint a:hover {
+            color: #6d4aff;
+            border-bottom-color: #6d4aff;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #8b7aa8;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-note .heart {
+            color: #b39df5;
+            font-size: 1rem;
+        }
+
+        /* 移动端微调 */
+        @media (max-width: 480px) {
+            .card {
+                padding: 2rem 1.5rem;
+                border-radius: 36px;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            .btn {
+                font-size: 1rem;
+                padding: 1rem 1.5rem;
+            }
+            .link-hint {
+                font-size: 0.8rem;
+                padding: 0.7rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- 简单可爱的头像占位 -->
+        <div class="avatar" aria-hidden="true">⚡</div>
+
+        <h1>我的爱发电</h1>
+        <div class="subhead">支持我 · 一起创作</div>
+
+        <!-- 爱发电标志性小徽章 -->
+        <div class="afdian-badge">
+            <span class="badge-icon">🔮</span>
+            爱发电 · 创作者主页
+        </div>
+
+        <!-- 主按钮：点击直接跳转到主页（当前链接是认证页，但作为入口演示，指向用户给的链接） 
+             注意: 用户提供的链接是 https://afdian.com/apply/certify，这是一个申请认证页面。
+             但用户说“这是我的主页，只做一个html让别人可以进来”，所以按钮链接使用这个URL，并提示说明。 
+        -->
+        <a href="https://afdian.com/apply/certify" class="btn" target="_blank" rel="noopener noreferrer">
+            <span>进入我的爱发电</span>
+            <span class="btn-icon">→</span>
+        </a>
+
+        <!-- 可选的链接提示，显示实际链接，方便复制或理解 -->
+        <div class="link-hint">
+            <span>🔗 直达</span>
+            <a href="https://afdian.com/apply/certify" target="_blank" rel="noopener noreferrer">
+                afdian.com/apply/certify
+            </a>
+        </div>
+
+        <div class="footer-note">
+            <span>感谢每一份喜欢</span>
+            <span class="heart">♡</span>
+            <span>用爱发电</span>
+        </div>
+    </div>
+</body>
+</html>
